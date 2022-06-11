@@ -12,7 +12,7 @@ export const api = async (
       method: method,
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
+        Authorization: `${token}`,
       },
       body: JSON.stringify(body),
     });

@@ -1,39 +1,48 @@
-import React, { useContext, useState } from 'react';
-//import { Navigate } from 'react-router-dom';
-import { AuthTokenContext } from '../../App';
-
-//api
+import React, { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 import { api } from '../../api/api';
 
-export const LogIn = (props) => {
+export const SignIn = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [, setToken] = useContext(AuthTokenContext);
+  const [name, setName] = useState('');
+  const [surname, setSurname] = useState('');
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const data = {
+    const body = {
+      name: name,
+      surname: surname,
       email: email,
       password: password,
     };
-    const handleServerResponse = (body) => {
-      setToken(body.accessToken);
-    };
-    api(
-      'http://51.38.51.187:5050/api/v1/auth/log-in',
-      'POST',
-      data,
-      handleServerResponse
-    );
+    api('http://51.38.51.187:5050/api/v1/auth/sign-up', 'POST', body);
   };
 
   // if (token) {
   //   return <Navigate to='/' />;
   // }
+
   return (
     <>
-      <h2>Login</h2>
+      <h2>Registro</h2>
       <form onSubmit={onSubmit}>
+        <label htmlFor='name'>name</label>
+        <input
+          type='name'
+          name='name'
+          id='name'
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <label htmlFor='surname'>surname</label>
+        <input
+          type='surname'
+          name='surname'
+          id='surname'
+          value={surname}
+          onChange={(e) => setSurname(e.target.value)}
+        />
         <label htmlFor='email'>email</label>
         <input
           type='text'
