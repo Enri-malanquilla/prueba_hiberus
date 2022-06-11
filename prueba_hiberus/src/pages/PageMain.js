@@ -1,4 +1,4 @@
-const Page_UserList = () => {
+const PageMain = () => {
   return (
     <>
       <nav>
@@ -8,9 +8,9 @@ const Page_UserList = () => {
           <li></li>
         </ul>
       </nav>
-      <p>lista de usuarios </p>
+      <p>página principal </p>
     </>
   );
 };
 
-export { Page_UserList };
+export { PageMain };

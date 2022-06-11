@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+//React
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+//hooks
+import { useLocalStorage } from './hooks/useLocalStorage';
 
+//pages and components
+import { PageMain, PageUserList, PageUser } from './pages/index';
+import { HeaderMain } from './components/index';
+//css
+import './App.css';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <BrowserRouter>
+        <HeaderMain />
+        <Routes>
+          <Route path='/' element={<PageMain />} />
+          <Route path='/userlist' element={<PageUserList />} />
+          <Route path='/user' element={<PageUser />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

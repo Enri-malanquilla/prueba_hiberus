@@ -1,4 +1,4 @@
-const Page_User = () => {
+const PageUser = () => {
   return (
     <>
       <nav>
@@ -13,4 +13,4 @@ const Page_User = () => {
   );
 };
 
-export { Page_User };
+export { PageUser };
