@@ -21,6 +21,7 @@ const PageMain = () => {
         </section>
       )}
       <LogIn />
+      {/* <SignIn /> */}
     </>
   );
 };

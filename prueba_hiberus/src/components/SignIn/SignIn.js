@@ -16,7 +16,13 @@ export const SignIn = (props) => {
       email: email,
       password: password,
     };
-    api('http://51.38.51.187:5050/api/v1/auth/sign-up', 'POST', body);
+    api(
+      'http://51.38.51.187:5050/api/v1/auth/sign-up',
+      'POST',
+      () => {},
+      undefined,
+      body
+    );
   };
 
   // if (token) {

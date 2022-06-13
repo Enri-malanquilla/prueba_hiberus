@@ -22,8 +22,9 @@ export const LogIn = (props) => {
     api(
       'http://51.38.51.187:5050/api/v1/auth/log-in',
       'POST',
-      data,
-      handleServerResponse
+      handleServerResponse,
+      undefined,
+      data
     );
   };
 
