@@ -18,7 +18,7 @@ const HeaderMain = () => {
               <Link to={'/userlist'}>USUARIOS</Link>
             </li>
             <li>
-              <Link to={'/user'}>UN USUARIO</Link>
+              <Link to={'/user'}>MI INFO</Link>
             </li>
           </ul>
         </nav>

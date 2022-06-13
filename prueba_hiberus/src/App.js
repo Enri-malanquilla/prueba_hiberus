@@ -5,7 +5,14 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useLocalStorage } from './hooks/useLocalStorage';
 
 //pages and components
-import { PageMain, PageUserList, PageUser } from './pages/index';
+import {
+  PageMain,
+  PageUserList,
+  PageUser,
+  PageSignIn,
+  PageLogIn,
+  PageOtherUser,
+} from './pages/index';
 import { HeaderMain } from './components/index';
 //css
 import './App.css';
@@ -28,9 +35,13 @@ function App() {
         <AuthTokenProvider>
           <HeaderMain />
           <Routes>
-            <Route path='/' element={<PageMain />} />
+            <Route path='/sign-in' element={<PageSignIn />} />
+            <Route path='/log-in' element={<PageLogIn />} />
             <Route path='/userlist' element={<PageUserList />} />
             <Route path='/user' element={<PageUser />} />
+            <Route path='/other-user/:id' element={<PageOtherUser />} />
+
+            <Route path='/' element={<PageMain />} />
           </Routes>
         </AuthTokenProvider>
       </BrowserRouter>

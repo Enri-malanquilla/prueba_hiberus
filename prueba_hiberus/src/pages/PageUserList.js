@@ -5,7 +5,7 @@ import { CardsUsers } from '../components/CardsUsers/CardsUsers';
 
 const PageUserList = () => {
   const [dataUsers, setDataUsers] = useState([]);
-  const [count, setCount] = useState();
+  const [, setCount] = useState();
   const [token] = useContext(AuthTokenContext);
 
   useEffect(() => {
@@ -14,7 +14,8 @@ const PageUserList = () => {
       'GET',
 
       (data) => {
-        return setDataUsers(data.items), setCount(data.count);
+        setDataUsers(data.items);
+        setCount(data.count);
       },
       token
     );
