@@ -1,10 +1,11 @@
 import React, { useContext, useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { AuthTokenContext } from '../App';
 
 //api
 import { api } from '../api/api';
-
+//css
+import './styles/log-in.css';
 export const PageLogIn = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -55,6 +56,11 @@ export const PageLogIn = (props) => {
         <br />
         <br />
       </form>
+      <button>
+        <Link to={'/sign-in'} className='nav-header'>
+          SIGN IN
+        </Link>
+      </button>
     </>
   );
 };

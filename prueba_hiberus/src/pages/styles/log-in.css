@@ -1,0 +1,11 @@
+form {
+    display: flex;
+    flex-direction: column;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+    .nav-header {
+        text-decoration: none;
+        color: azure;
+    }
+ 

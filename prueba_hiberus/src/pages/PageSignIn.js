@@ -1,15 +1,13 @@
-import React, { useState, useContext } from 'react';
-import { Navigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { api } from '../api/api';
-import { AuthTokenContext } from '../App';
 
 export const PageSignIn = (props) => {
-  const [token] = useContext(AuthTokenContext);
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
+  const navigate = useNavigate();
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -26,11 +24,8 @@ export const PageSignIn = (props) => {
       undefined,
       body
     );
+    navigate('/log-in');
   };
-
-  if (token) {
-    return <Navigate to='/' />;
-  }
 
   return (
     <>
@@ -72,6 +67,12 @@ export const PageSignIn = (props) => {
         <br />
         <br />
       </form>
+      <button>
+        <Link to={'/log-in'} className='nav-header'>
+          {' '}
+          LOG IN
+        </Link>
+      </button>
     </>
   );
 };

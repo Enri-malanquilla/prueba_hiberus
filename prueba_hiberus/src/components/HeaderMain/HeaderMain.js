@@ -1,9 +1,20 @@
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthTokenContext } from '../../App';
 
+import './Header.css';
+
 const HeaderMain = () => {
-  const [token] = useContext(AuthTokenContext);
+  const [token, setToken] = useContext(AuthTokenContext);
+
+  const navigate = useNavigate();
+
+  const cerrarSesion = (e) => {
+    e.preventDefault();
+    setToken('');
+    navigate('/');
+  };
+
   return (
     <header>
       <h1>Prueba Hiberus</h1>
@@ -12,13 +23,24 @@ const HeaderMain = () => {
         <nav>
           <ul>
             <li>
-              <Link to={'/'}>INICIO</Link>
+              <Link to={'/'} className='nav-header'>
+                INICIO
+              </Link>
             </li>
             <li>
-              <Link to={'/userlist'}>USUARIOS</Link>
+              <Link to={'/userlist'} className='nav-header'>
+                USUARIOS
+              </Link>
             </li>
             <li>
-              <Link to={'/user'}>MI INFO</Link>
+              <Link to={'/user'} className='nav-header'>
+                MI INFO
+              </Link>
+            </li>
+            <li>
+              <button onClick={cerrarSesion} className='nav-header'>
+                CERRAR SESION
+              </button>
             </li>
           </ul>
         </nav>

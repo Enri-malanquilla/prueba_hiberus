@@ -6,7 +6,9 @@ export const CardsUsers = ({ name, surname, idUser }) => {
       <h1>{name}</h1>
       <h2>{surname}</h2>
       <button>
-        <Link to={`/other-user/${idUser}`}>VER</Link>
+        <Link to={`/other-user/${idUser}`} className='nav-header'>
+          VER
+        </Link>
       </button>
     </article>
   );

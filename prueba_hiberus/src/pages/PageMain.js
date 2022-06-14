@@ -11,18 +11,23 @@ const PageMain = () => {
 
   return (
     <>
-      <p>inicio</p>
+      <p>INICIO</p>
       {!token ? (
         <nav>
           <ul>
             <li>
               <button>
-                <Link to={'/sign-in'}>SIGN IN</Link>
+                <Link to={'/sign-in'} className='nav-header'>
+                  SIGN IN
+                </Link>
               </button>
             </li>
             <li>
               <button>
-                <Link to={'/log-in'}> LOG IN</Link>
+                <Link to={'/log-in'} className='nav-header'>
+                  {' '}
+                  LOG IN
+                </Link>
               </button>
             </li>
           </ul>
@@ -32,12 +37,16 @@ const PageMain = () => {
           <ul>
             <li>
               <button>
-                <Link to={'/userlist'}>USUARIOS</Link>
+                <Link to={'/userlist'} className='nav-header'>
+                  USUARIOS
+                </Link>
               </button>
             </li>
             <li>
               <button>
-                <Link to={'/user'}>MI INFO</Link>
+                <Link to={'/user'} className='nav-header'>
+                  MI INFO
+                </Link>
               </button>
             </li>
           </ul>

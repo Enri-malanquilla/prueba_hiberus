@@ -1,6 +1,7 @@
 //React
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 //hooks
 import { useLocalStorage } from './hooks/useLocalStorage';
 
@@ -16,6 +17,9 @@ import {
 import { HeaderMain } from './components/index';
 //css
 import './App.css';
+//tostify
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 //context
 export const AuthTokenContext = React.createContext('');
@@ -28,9 +32,22 @@ const AuthTokenProvider = ({ children }) => {
     </AuthTokenContext.Provider>
   );
 };
+
 function App() {
   return (
     <div className='App'>
+      <ToastContainer
+        position='top-right'
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        limit={1}
+      />
       <BrowserRouter>
         <AuthTokenProvider>
           <HeaderMain />

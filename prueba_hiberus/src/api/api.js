@@ -1,3 +1,5 @@
+import { toast } from 'react-toastify';
+
 export const api = async (
   url,
   method,
@@ -18,19 +20,14 @@ export const api = async (
     });
 
     if (response.ok) {
-      const body = await response.json();
+      const body = (await response.json()) ?? null;
 
       callback(body);
+      toast.success(response.statusText);
     } else {
-      onError(response);
-      console.log(
-        'Codigo de estado no esperado',
-        response.status,
-        response.statusText
-      );
+      toast.error(response.statusText);
     }
   } catch (msg) {
-    onCommunicationError(msg);
-    console.error('este es el catch', msg);
+    toast.error(msg);
   }
 };

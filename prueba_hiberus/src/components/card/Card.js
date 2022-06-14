@@ -1,10 +1,13 @@
-import { useContext } from 'react';
-import { Navigate } from 'react-router-dom';
+import { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { EditCard } from '../EditCard/EditCard';
 import { api } from '../../api/api';
 import { AuthTokenContext } from '../../App';
 
 export const Card = ({ name, surname, idUser }) => {
   const [token] = useContext(AuthTokenContext);
+  const [modified, setModified] = useState(false);
+  const navigate = useNavigate();
 
   const handleDeleteUser = () => {
     api(
@@ -14,15 +17,36 @@ export const Card = ({ name, surname, idUser }) => {
       token
     );
 
-    <Navigate to={'/userlist'} />;
+    navigate('/userlist');
+  };
+
+  const handleEditUser = (e) => {
+    e.preventDefault();
+    setModified(!modified);
   };
 
   return (
-    <article>
-      <h1>{name}</h1>
-      <h2>{surname}</h2>
-      <button onClick={handleDeleteUser}>BORRAR</button>
-      <button>MODIFICAR</button>
-    </article>
+    <>
+      {!modified && (
+        <article>
+          <h1>{name}</h1>
+          <h2>{surname}</h2>
+          <button onClick={handleDeleteUser} className='nav-header'>
+            BORRAR
+          </button>
+          <button onClick={handleEditUser} className='nav-header'>
+            MODIFICAR
+          </button>
+        </article>
+      )}
+      {modified && (
+        <EditCard
+          nameUser={name}
+          surnameUser={surname}
+          idUser={idUser}
+          handleEditUser={handleEditUser}
+        />
+      )}
+    </>
   );
 };

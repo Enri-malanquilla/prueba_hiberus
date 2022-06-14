@@ -3,6 +3,9 @@ import { AuthTokenContext } from '../App';
 import { api } from '../api/api';
 import { CardsUsers } from '../components/CardsUsers/CardsUsers';
 
+//css
+import './styles/list-user.css';
+
 const PageUserList = () => {
   const [dataUsers, setDataUsers] = useState([]);
   const [, setCount] = useState();
@@ -21,7 +24,7 @@ const PageUserList = () => {
     );
   }, [token]);
   return (
-    <section>
+    <section className='list-user'>
       <ul>
         {dataUsers.length > 0 &&
           dataUsers.map((user, index) => {
