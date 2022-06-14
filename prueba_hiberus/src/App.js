@@ -13,6 +13,7 @@ import {
   PageSignIn,
   PageLogIn,
   PageOtherUser,
+  Error404,
 } from './pages/index';
 import { HeaderMain } from './components/index';
 //css
@@ -59,6 +60,7 @@ function App() {
             <Route path='/other-user/:id' element={<PageOtherUser />} />
 
             <Route path='/' element={<PageMain />} />
+            <Route path='*' element={<Error404 />} />
           </Routes>
         </AuthTokenProvider>
       </BrowserRouter>
